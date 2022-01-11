@@ -23,10 +23,9 @@ export default {
     const canvas = document.getElementById("qrcode");
     const socketId = this.$socket.id;
 
-
     QRCode.toCanvas(
       canvas,
-      `http://192.168.1.23:8080/wood/?id=${socketId}`,
+      `http://${window.location.hostname}:8080/wood/?id=${socketId}`,
       { width: 100 },
       function (error) {
         if (error) console.error(error);
