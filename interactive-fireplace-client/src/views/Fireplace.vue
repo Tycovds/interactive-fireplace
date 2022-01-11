@@ -18,7 +18,7 @@ export default {
   mounted() {
     const fireplace = new Fireplace("#fire", 10);
     this.$socket.on("fire", () => {
-      fireplace.throwWood(10);
+      fireplace.throwWood(15);
     });
     const canvas = document.getElementById("qrcode");
     const socketId = this.$socket.id;
@@ -26,11 +26,7 @@ export default {
     QRCode.toCanvas(
       canvas,
       `http://${window.location.hostname}:8080/wood/?id=${socketId}`,
-      { width: 100 },
-      function (error) {
-        if (error) console.error(error);
-        console.log("success!");
-      }
+      { width: 150 }
     );
   },
 };
