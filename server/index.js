@@ -1,3 +1,4 @@
+const ip = require('ip');
 const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -17,6 +18,6 @@ io.on("connection", (socket) => {
     });
 })
 
-httpServer.listen(5050, "192.168.1.23", () => {
+httpServer.listen(5050, ip.address(), () => {
     console.log('Server running...')
 });
